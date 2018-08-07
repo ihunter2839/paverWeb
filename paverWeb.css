@@ -111,6 +111,17 @@
     
     margin-left: 0;
     margin-right: 0;
+    
+    height: 30%
+}
+
+.formInput {
+    border: 1px solid black;
+    border-radius: 5px;
+    
+    margin: 10px;
+    
+    width: 40px;
 }
 
 .totalsBar {
