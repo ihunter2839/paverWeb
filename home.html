@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+        <link href="https://fonts.googleapis.com/css?family=Kirang+Haerang" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+        <link href="paverWeb.css" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <!-- Page title and probably a logo and icon -->
+            <div class="row" style="height: 15vh">
+                <div class="col-6">
+                    <img src="img/evergreenLogoTransparent.png" style="height: 100%; border-color: transparent;"/>
+                </div>
+                <div class="col-6">
+                    <div class="pageTitleContainer">
+                        <div class="pageTitle"> paverWeb </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notes section -->
+            <div class="row" style="height: 85vh; width: 100vw">
+
+                <div id="notesContainer" class="col-5 notesContainer">
+                    <div id="notesTitle" class="sectionTitle">Notes:</div>
+                    <div class="row m-0 p-0" style="width: 100%; height: 10%;">
+                        <textarea id="noteInput" class="noteInput" cols="100" rows="3"></textarea>
+                    </div>
+
+                    <div class="row mt-3 ml-0 mr-0 p-0" style="height: 80%; overflow-y: scroll">
+                        <ul id="notesList" class="notesList">
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="formsContainer" class="col-7 formsContainer">
+                    <div id="formsTitle" class="sectionTitle">Calculator </div>
+
+                    <div class="row m-0 p-0" style="width: 100%; height: 10%">
+                        <div id="totalsBar" class="totalsBar">
+                            Totals will go here
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 ml-0 mr-0 p-0" style="height: 80%; overflow-y: scroll">
+                        <ul id="formsList" class="formsList">
+                            <li class="formItem">
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script>
+            var noteMap = {};
+            var defaultText = "Enter Notes Here..."
+            var noteInput = document.getElementById("noteInput");
+
+            var noteList = document.getElementById("notesList");
+
+            /* Set the default text */
+            noteInput.value = defaultText;
+
+            /* Clear the note input field when it comes into focus */
+            noteInput.onfocus = function() {
+                if (noteInput.value == defaultText) {
+                    noteInput.value = "";
+                }
+            }
+
+            /* Read the note input value each time a new character is added */
+            noteInput.oninput = function() {
+                if (noteInput.value.substr(noteInput.value.length-1) == '\n'){
+                    if (noteInput.value.length != 1){
+                        addNote(noteInput.value);
+                    }
+                    noteInput.value = "";   
+                }                
+            }
+
+            /* Add any current text to the notes list and reset the default text when note input field loses focus */
+            /*
+            noteInput.onblur = function() {
+                if (noteInput.value != "") {
+                    notes.push(noteInput.value);
+                }
+                noteInput.value = defaultText;
+            }
+            */
+
+            /* Add a note to the list of notes */
+            function addNote(value) {
+                var li = document.createElement("li");
+                li.className = "noteItem";
+
+                //noteContainer
+                var nC = document.createElement("div");
+                nC.className = "noteTextContainer";
+                //note text
+                var t = document.createTextNode(value);
+                t.className = "noteText";
+
+                //noteActionContainer
+                var naC = document.createElement("div");
+                naC.className = "noteActionContainer";
+                //note deletion button
+                //create an id for the button
+                var buttonId = "button"+Object.keys(noteMap).length;
+
+                var b = document.createElement("button");
+                b.id = buttonId;
+                b.className = "deleteNote";
+                b.onclick = function() {
+                    noteList.removeChild(noteMap[this.id]);
+                }
+
+                //add items to dom
+                nC.appendChild(t);
+                naC.appendChild(b);
+                li.appendChild(nC);
+                li.appendChild(naC);
+                noteList.appendChild(li);
+
+                //create a note id and update map
+                noteMap[buttonId] = li;
+
+            }
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    </body>
+</html>

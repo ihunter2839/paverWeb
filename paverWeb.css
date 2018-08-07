@@ -1,0 +1,122 @@
+.pageTitleContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+}
+
+.pageTitle {
+    font-family: 'Kirang Haerang', cursive;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+.notesContainer {
+    border: 5px solid #1c7c45;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.sectionTitle {
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 2em;
+}
+
+.notesList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%
+}
+
+.noteInput {
+    border: 2px solid #1c7c45;
+    border-radius: 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.noteItem {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 5px;
+    padding: 0;
+
+    min-height: 5%;
+    width: 100%;
+
+    align-items: center;    
+}
+
+.noteTextContainer {
+    display: flex;
+    flex-direction: row;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    width: 80%;
+    min-height: 100%;
+    
+    align-items: center;
+
+    align-self: flex-start;
+
+}
+
+.noteActionContainer {
+    display: flex;
+    flex-direction: row;
+
+    width: 20%;
+    height: 20px;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteNote {
+    background-image: url(img/deleteNote.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    border: 0px solid transparent;
+    height: 100%;
+}
+
+.noteText {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5em;
+}
+
+.formsContainer {
+    border: 5px solid #1c7c45;
+    border-radius: 10px;
+    
+    padding: 5px;
+}
+
+.formsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.formItem {
+    border: 2px solid black;
+    border-radius: 10px;
+    
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.totalsBar {
+    border: 2px solid #1c7c45;
+    border-radius: 10px;
+    
+    height: 100%;
+    width: 100%;
+}
