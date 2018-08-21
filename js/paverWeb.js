@@ -4,6 +4,7 @@ var noteInput = document.getElementById("noteInput");
 
 var notesList = document.getElementById("notesList");
 
+var formMap = {};
 var formsList = document.getElementById("formsList");
 
 
@@ -111,21 +112,21 @@ function addForm() {
     var borderInput = document.createElement("div");
     borderInput.type = "text";
     borderInput.className = "formInput";
-    
+
     var c3_r1 = document.createElement("div");
     c3_r1.className = "col-3";
-    
+
     var r1_c3_r1 = document.createElement("div");
     r1_c3_r1.className = "row align-items-center";
-    
+
     var deductBorderText = document.createElement("div");
     deductBorderText.style = "max-width: 60%; font-size: 10px;";
     deductBorderText.textContent = "Deduct border from area?";
-    
+
     var deductBorderCheck = document.createElement("input");
     deductBorderCheck.type = "checkbox";
     deductBorderCheck.style = "margin-left: 5%";
-    
+
     //construct the first row of the form
     r1_c1_r1.appendChild(sqftText);
     r1_c1_r1.appendChild(sqftInput);
@@ -139,21 +140,69 @@ function addForm() {
     r1.appendChild(c1_r1);
     r1.appendChild(c2_r1);
     r1.appendChild(c3_r1);
+
+    //construct second row of form
+    var r2 = document.createElement("div");
+    r2.className = "row m-0 pl-2 pr-2";
+    r2.style = "height: 30%";
+
+    var c1_r2 = document.createElement("div");
+    c1_r2.className = "col-6";
+
+    var r1_c1_r2 = document.createElement("div");
+    r1_c1_r2.className = "row align-items-center";
+
+    var overageText = document.createElement("div");
+    overageText.textContent = "Overage %";
+
+    var overageInput = document.createElement("input");
+    overageInput.type = "text";
+    overageInput.className = "formInput";
+
+    var c2_r2 = document.createElement("div");
+    c2_r2.className = "col-6";
+
+    var r1_c2_r2 = document.createElement("div");
+    r1_c2_r2.style = "min-height: 100%";
+    r1_c2_r2.className = "row align-items-center";
+
+    var overageBorderText = document.createElement("div");
+    overageBorderText.style = "max-width: 70%";
+    overageBorderText.textContent = "Apply to border?";
+
+    var overageBorderInput = document.createElement("input");
+    overageBorderInput.type ="checkbox";
+    overageBorderInput.style = "margin-left: 5%";
+
+    //construct the second row of form
+    r1_c1_r2.appendChild(overageText);
+    r1_c1_r2.appendChild(overageInput);
+    r1_c2_r2.appendChild(overageBorderText);
+    r1_c2_r2.appendChild(overageBorderInput);
+    c1_r2.appendChild(r1_c1_r2);
+    c2_r2.appendChild(r1_c2_r2);
+    r2.appendChild(c1_r2);
+    r2.appendChild(c2_r2);
     
+    //construct the third row of the form
+    //var brandSelect = 
+
+
     //add the buttons
     var applyForm = document.createElement("button");
     applyForm.type = "button";
     applyForm.className = "applyForm formTotalAction";
-    
+
     var deductForm = document.createElement("button");
     deductForm.type = "button";
     deductForm.className = "deductForm formTotalAction";
-    
-    
+
+
     li.appendChild(r1);
+    li.appendChild(r2);
     li.appendChild(applyForm);
     li.appendChild(deductForm);
-    
+
     formsList.appendChild(li);
 
     //Create the text inputs and select inputs
