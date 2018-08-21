@@ -122,6 +122,7 @@
     margin: 10px;
     
     width: 40px;
+    min-height: 30px;
 }
 
 .totalsBar {

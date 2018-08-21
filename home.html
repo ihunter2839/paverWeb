@@ -44,7 +44,10 @@
                     </div>
                 </div>
 
-                <div id="formsContainer" class="col-7 formsContainer">
+                <div id="formsContainer" class="col-7 formsContainer" style="position: relative">
+                    
+                    <button type="button" onclick="addForm()" style="position: absolute; bottom: 15px; right: 25px">Add form</button>
+                    
                     <div id="formsTitle" class="sectionTitle">Calculator </div>
 
                     <div class="row m-0 p-0" style="width: 100%; height: 10%">
@@ -53,7 +56,7 @@
                         </div>
                     </div>
 
-                    <div class="row mt-3 ml-0 mr-0 p-0" style="height: 80%; overflow-y: scroll">
+                    <div class="row mt-3 ml-0 mr-0 p-0" style="height: 80%; overflow-y: scroll;">
                         <ul id="formsList" class="formsList">
                             <li class="formItem">
                                 <div class="row m-0 pl-2 pr-2" style="height: 30%">
@@ -71,11 +74,34 @@
                                     </div>
                                     <div class="col-3">
                                         <div class="row align-items-center">
-                                            <div style="max-width: 60%">Deduct border from area?</div>
-                                            <input type="checkbox">
+                                            <div style="max-width: 60%; font-size: 10px">Deduct border from area?</div>
+                                            <input type="checkbox" style="margin-left: 5%">
                                         </div>
                                     </div>
-
+                                </div>
+                                
+                                <div class="row m-0 pl-2 pr-2" style="height: 30%">
+                                    <div class="col-6">
+                                        <div class="row align-items-center">
+                                            <div>Overage %</div>
+                                            <input type="text" class="formInput"/>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row align-items-center">
+                                            <div style="max-width: 70%;">Apply to border?</div>
+                                            <input type="checkbox" style="margin-left: 5%;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row m-0 pl-2 pr-2" style="height: 30%">
+                                    <div class="col-4">
+                                        <div class="row align-items-center">
+                                            <div>Brand</div>
+                                            <select ></select>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
