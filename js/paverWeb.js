@@ -109,7 +109,7 @@ function addForm() {
     var borderText = document.createElement("div");
     borderText.textContent = "Border Lnft";
 
-    var borderInput = document.createElement("div");
+    var borderInput = document.createElement("input");
     borderInput.type = "text";
     borderInput.className = "formInput";
 
@@ -183,10 +183,84 @@ function addForm() {
     c2_r2.appendChild(r1_c2_r2);
     r2.appendChild(c1_r2);
     r2.appendChild(c2_r2);
-    
-    //construct the third row of the form
-    //var brandSelect = 
 
+    //construct the third row of the form
+    var r3 = document.createElement("div");
+    r3.className = "row m-0 pl-2 pr-2";
+    r3.style = "height: 30%";
+    
+    var c1_r3 = document.createElement("div");
+    c1_r3.className = "col-6";
+    
+    var r1_c1_r3 = document.createElement("div");
+    r1_c1_r3.className = "row align-items-center";
+    
+    var brandText = document.createElement("div");
+    brandText.textContent = "Brand";
+    
+    /*
+    Future improvements could include the ability to
+    type to search for brands / paver types 
+    */
+    var brandSelect = document.createElement("select");
+    brandSelect.className = "formInput";
+    brandSelect.style = "min-width: 100px";
+    
+    var c2_r3 = document.createElement("div");
+    c2_r3.className = "col-6";
+    
+    var r1_c2_r3 = document.createElement("div");
+    r1_c2_r3.className = "row align-items-center";
+    
+    var styleText = document.createElement("div");
+    styleText.textContent = "Style";
+    
+    var styleSelect = document.createElement("select");
+    styleSelect.className = "formInput";
+    styleSelect.style = "min-width: 100px";
+    
+    //add a default selection
+    var brandSelectDefault = document.createElement("option");
+    brandSelectDefault.textContent = "<--Select Brand-->";
+    brandSelect.appendChild(brandSelectDefault);
+    
+    var styleSelectDefault = document.createElement("option");
+    styleSelectDefault.textContent = "<--Select Style-->";
+    
+    for (var brand in paverData) {
+        let brandOption = document.createElement("option");
+        brandOption.textContent = brand;
+        brandSelect.appendChild(brandOption);
+    }
+    
+    brandSelect.onchange = function() {
+        switch (this.value) {
+            case "Calstone":
+                styleSelect.appendChild(styleSelectDefault);
+                for (let style in paverData["Calstone"]) {
+                    let s = document.createElement("option");
+                    s.textContent = style.replace("_"," ");
+                    styleSelect.appendChild(s);
+                }
+                break;
+            case "Belgard":
+                console.log("belgard products");
+                break;
+            
+        }
+    };
+
+    
+    //construct the third row
+    r1_c1_r3.appendChild(brandText);
+    r1_c1_r3.appendChild(brandSelect);
+    r1_c2_r3.appendChild(styleText);
+    r1_c2_r3.appendChild(styleSelect);
+    c1_r3.appendChild(r1_c1_r3);
+    c2_r3.appendChild(r1_c2_r3);
+    r3.appendChild(c1_r3);
+    r3.appendChild(c2_r3);
+    
 
     //add the buttons
     var applyForm = document.createElement("button");
@@ -200,6 +274,7 @@ function addForm() {
 
     li.appendChild(r1);
     li.appendChild(r2);
+    li.appendChild(r3);
     li.appendChild(applyForm);
     li.appendChild(deductForm);
 
@@ -211,5 +286,4 @@ function addForm() {
     //Add onSelect function to Styles select input to populate pattern options
 
     //add all of this shit to the list item
-
 }
