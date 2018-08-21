@@ -140,7 +140,19 @@ function addForm() {
     r1.appendChild(c2_r1);
     r1.appendChild(c3_r1);
     
+    //add the buttons
+    var applyForm = document.createElement("button");
+    applyForm.type = "button";
+    applyForm.className = "applyForm formTotalAction";
+    
+    var deductForm = document.createElement("button");
+    deductForm.type = "button";
+    deductForm.className = "deductForm formTotalAction";
+    
+    
     li.appendChild(r1);
+    li.appendChild(applyForm);
+    li.appendChild(deductForm);
     
     formsList.appendChild(li);
 
