@@ -85,8 +85,7 @@ function addForm() {
     //Sqft and border information
     var r1 = document.createElement("div");
     r1.className = "row m-0 pl-2 pr-2";
-    r1.style = "height: 30%";
-
+    
     var  c1_r1 = document.createElement("div");
     c1_r1.className = "col-4";
 
@@ -144,7 +143,6 @@ function addForm() {
     //construct second row of form
     var r2 = document.createElement("div");
     r2.className = "row m-0 pl-2 pr-2";
-    r2.style = "height: 30%";
 
     var c1_r2 = document.createElement("div");
     c1_r2.className = "col-6";
@@ -187,80 +185,95 @@ function addForm() {
     //construct the third row of the form
     var r3 = document.createElement("div");
     r3.className = "row m-0 pl-2 pr-2";
-    r3.style = "height: 30%";
-    
+
     var c1_r3 = document.createElement("div");
     c1_r3.className = "col-6";
-    
+
     var r1_c1_r3 = document.createElement("div");
     r1_c1_r3.className = "row align-items-center";
-    
+
     var brandText = document.createElement("div");
     brandText.textContent = "Brand";
-    
+
     /*
     Future improvements could include the ability to
     type to search for brands / paver types 
     */
     var brandSelect = document.createElement("select");
     brandSelect.className = "formInput";
-    brandSelect.style = "min-width: 100px";
-    
-    var c2_r3 = document.createElement("div");
-    c2_r3.className = "col-6";
-    
-    var r1_c2_r3 = document.createElement("div");
-    r1_c2_r3.className = "row align-items-center";
-    
+    brandSelect.style = "min-width: 80px";
+
+    var r2_c1_r3 = document.createElement("div");
+    r2_c1_r3.className = "row align-items-center";
+
     var styleText = document.createElement("div");
     styleText.textContent = "Style";
-    
+
     var styleSelect = document.createElement("select");
     styleSelect.className = "formInput";
-    styleSelect.style = "min-width: 100px";
-    
+    styleSelect.style = "min-width: 80px";
+
     //add a default selection
     var brandSelectDefault = document.createElement("option");
     brandSelectDefault.textContent = "<--Select Brand-->";
     brandSelect.appendChild(brandSelectDefault);
-    
+
     var styleSelectDefault = document.createElement("option");
     styleSelectDefault.textContent = "<--Select Style-->";
-    
+
     for (var brand in paverData) {
         let brandOption = document.createElement("option");
         brandOption.textContent = brand;
         brandSelect.appendChild(brandOption);
     }
-    
+
+    var c2_r3 = document.createElement("div");
+    c2_r3.className = "col-6"
+
+    var r1_c2_r3 = document.createElement("div");
+    r1_c2_r3.className = "row align-items-center";
+
+    var patternText = document.createElement("div");
+    patternText.textContent = "Pattern";
+
+    var patternSelect = document.createElement("select");
+    patternSelect.className = "formInput";
+    patternSelect.style = "min-width: 100px"
+
+    var patternSelectDefault = document.createElement("option");
+    patternSelectDefault.textContent = "<--Select Pattern-->";
+    patternSelect.appendChild(patternSelectDefault);
+
     brandSelect.onchange = function() {
-        switch (this.value) {
-            case "Calstone":
-                styleSelect.appendChild(styleSelectDefault);
-                for (let style in paverData["Calstone"]) {
-                    let s = document.createElement("option");
-                    s.textContent = style.replace("_"," ");
-                    styleSelect.appendChild(s);
-                }
-                break;
-            case "Belgard":
-                console.log("belgard products");
-                break;
-            
+        /* Remove any old style options */
+        while (styleSelect.firstChild) {
+            styleSelect.removeChild(styleSelect.firstChild);
+        }
+        styleSelect.appendChild(styleSelectDefault);
+        for (let style in paverData[this.value]) {
+            let s = document.createElement("option");
+            s.textContent = style.replace("_"," ");
+            styleSelect.appendChild(s);
         }
     };
 
-    
+    styleSelect.onchange = function () {
+    };
+
+
     //construct the third row
     r1_c1_r3.appendChild(brandText);
     r1_c1_r3.appendChild(brandSelect);
-    r1_c2_r3.appendChild(styleText);
-    r1_c2_r3.appendChild(styleSelect);
+    r2_c1_r3.appendChild(styleText);
+    r2_c1_r3.appendChild(styleSelect);
+    r1_c2_r3.appendChild(patternText);
+    r1_c2_r3.appendChild(patternSelect);
     c1_r3.appendChild(r1_c1_r3);
+    c1_r3.appendChild(r2_c1_r3);
     c2_r3.appendChild(r1_c2_r3);
     r3.appendChild(c1_r3);
     r3.appendChild(c2_r3);
-    
+
 
     //add the buttons
     var applyForm = document.createElement("button");

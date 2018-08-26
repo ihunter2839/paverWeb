@@ -2,10 +2,30 @@ var paverData = {
     Calstone : {
         Classic_Cobble : {
             sizes : [
-                (6,4.5),
-                (6,6),
-                (6,9),
-                (9,12)
+                {
+                    size: "4.5X6",
+                    colors: [],
+                    minimumOrder: .188,
+                    sqftPallet: 105
+                },
+                {
+                    size : "6x6",
+                    colors : [],
+                    minimumOrder : .25,
+                    sqftPallet: 105
+                },
+                {
+                    size : "6x9",
+                    colors : ["Charcoal"],
+                    minimumOrder : .375,
+                    sqftPallet: 98
+                },
+                {
+                    size : "9x12",
+                    colors: [],
+                    minimumOrder : .75,
+                    sqftPallet: 105
+                }
             ],
             colors : [
                 "Tan Red Charcoal",
@@ -14,7 +34,6 @@ var paverData = {
                 "Tan Brown Charcoal",
                 "Grey Charcoal Tan",
                 "Grey Charcoal",
-                "Charcoal"
             ],
             patterns : [
                 "Herringbone 45",
@@ -25,16 +44,34 @@ var paverData = {
                 "Mega Pattern 2",
                 "Mega Pattern 3",
                 "Mega Pattern 4"
-            ],
-            //in sqft
-            minimumOrder : 1
+            ]
         },
         Mission : {
             sizes : [
-                (4,8),
-                (6,6),
-                (6,12),
-                (12,12)
+                {
+                    size: "4x8",
+                    colors: ["Charcoal"],
+                    minimumOrder: .23,
+                    sqftPallet: 105
+                },
+                {
+                    size: "6x6",
+                    colors: ["Charcoal"],
+                    minimumOrder: .25,
+                    sqftPallet: 105
+                },
+                {
+                    size: "6x12",
+                    colors: [],
+                    minimumOrder: .5,
+                    sqftPallet: 105
+                },
+                {
+                    size: "12x12",
+                    colors: [],
+                    minimumOrder: 1,
+                    sqftPallet: 105
+                }
             ],
             colors : [
                 "Tan Red Charcoal",
@@ -43,7 +80,6 @@ var paverData = {
                 "Tan Brown Charcoal",
                 "Grey Charcoal Tan",
                 "Grey Charcoal",
-                "Charcoal"
             ],
             patterns : [
                 "Running Bond Calstone",
@@ -54,16 +90,28 @@ var paverData = {
                 "Mission 3",
                 "Mission 4",
                 "Varozza"
-            ],
-            minimumOrder : 1
+            ]
         }
     }, 
     Belgard : {
         Cambride_Cobble : { 
             sizes : [
-                (6,6),
-                (6,9),
-                (9,12)
+                {
+                    size: "6x6",
+                    colors: [],
+                    minimumOrder: .25
+                },
+                {
+                    size: "6x9",
+                    colors: ["Dark Charcoal"],
+                    minimumOrder: .375
+                },
+                {
+                    size: "9x12",
+                    colors: [],
+                    minimumOrder: .75
+
+                }
             ],
             colors : [
                 "Victorian",
@@ -73,16 +121,46 @@ var paverData = {
                 "Barcelona",
                 "Bella",
                 "Montecito",
-                "Rio",
-                "Dark Charcoal"
+                "Rio"
             ],
             patterns : [
                 "Running Bond Belgard",
                 "Herringbone",
                 "2 Piece",
                 "3 Piece"
+            ]
+        },
+        Avalon_Slate : {
+            sizes : [
+                {
+                    size: "3 Piece Large",
+                    colors: [],
+                    minimumOrder: 12
+                },
+                {
+                    size: "3 Piece Small",
+                    colors: [],
+                    minimumOrder: 12
+                },
+                {
+                    size: "6x9",
+                    colors: ["Charcoal"],
+                    minimumOrder: .375
+                }
             ],
-            minimumOrder: 1
+            colors: [
+                "Victorian",
+                "Toscana",
+                "Aspen",
+                "Autumn",
+                "Barcelona",
+                "Bella",
+                "Montecito",
+                "Rio"
+            ],
+            //fuck the patterns its a pre-stacked pallet
+            patterns : [
+            ]
         }
     }
 }
